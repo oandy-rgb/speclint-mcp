@@ -1,4 +1,4 @@
-# 🛡️ SpecLinter MCP
+# 🛡️ SpecLint MCP
 
 > **Stop letting AI Agents "hallucinate" your business logic. Validate your specs before you write a single line of code.**
 
