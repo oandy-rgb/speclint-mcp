@@ -1,43 +1,28 @@
-🛡️ SpecLinter MCP
-Stop letting AI Agents "hallucinate" your business logic.
+# 🛡️ SpecLinter MCP
 
-SpecLinter is a Model Context Protocol (MCP) server that acts as a Semantic Linter for your Software Design Documents (SDD). It stress-tests your requirements by generating semantic perturbations and detecting logic divergence before a single line of code is written.
+> **Stop letting AI Agents "hallucinate" your business logic. Validate your specs before you write a single line of code.**
 
-❌ The Problem
-You give a vague prompt to an AI Agent (like Claude or GPT-4). It "guesses" the edge cases, writes 500 lines of code, and you spend 2 hours debugging its "assumptions."
+`SpecLinter` is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server designed to act as a **Semantic Linter** for Software Design Documents (SDD) and requirement specs. 
 
-✅ The Solution (SpecLinter)
-Perturb: Rewrites your spec into 3 different semantic styles.
+Instead of just generating code, it **stress-tests** your requirements by using adversarial semantic perturbations to find hidden ambiguities that usually lead to AI-generated bugs.
 
-Extract: Flattens them into structured logic rules (JSON).
+---
 
-Judge: Detects where the logic conflicts.
+## ❌ The Problem: "The Guessing Game"
+When you give a vague or ambiguous spec to an AI Agent (like Claude, GPT-4, or Aider):
+1.  **The Agent Guesses**: It fills the logical gaps with its own assumptions.
+2.  **The "Silent Fail"**: It writes 500 lines of technically correct but logically wrong code.
+3.  **The Debug Loop**: You spend hours fixing bugs that originated from a single ambiguous sentence in your spec.
 
-Report: Tells the Agent exactly where the spec is ambiguous.
+## ✅ The Solution: SpecLinter
+SpecLinter breaks the cycle by forcing the AI to prove the spec is robust **before** development starts.
 
-🚀 Quick Start (For Claude Desktop / Cursor / Aider)
-Install via uv:
 
-Bash
-uv pip install speclinter-mcp
-Add to your MCP Config:
 
-JSON
-"mcpServers": {
-  "speclinter": {
-    "command": "python",
-    "args": ["-m", "speclinter.server"],
-    "env": {
-      "OPENAI_API_KEY": "your-key-here"
-    }
-  }
-}
-📊 Example Output
-Stability Score: 65/100
-⚠️ Conflict found in "Refund Logic":
+### How it works:
+1.  **Perturb**: Rewrites your spec into 3 distinct semantic styles (e.g., Concise, Legalistic, User-Centric) while maintaining 100% semantic equivalence.
+2.  **Implement**: Simultaneously generates 3 independent "shadow implementations" (pseudocode) based on these variations.
+3.  **Judge**: A high-reasoning "Judge" model compares the implementations. If they diverge, it means your original spec is ambiguous.
+4.  **Report**: Pinpoints the exact sentence in your spec that caused the logic to fork.
 
-Version A assumed "Instant Refund".
-
-Version B assumed "Pending Approval".
-
-Source of Ambiguity: The sentence "Refunds are processed accordingly" in your spec.
+---
