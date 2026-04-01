@@ -2,20 +2,20 @@
 
 > **Stop letting AI Agents "hallucinate" your business logic. Validate your specs before you write a single line of code.**
 
-`SpecLinter` is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server designed to act as a **Semantic Linter** for Software Design Documents (SDD) and requirement specs. 
+`SpecLint` is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server designed to act as a **Semantic Linter** for Software Design Documents (SDD) and requirement specs. 
 
 Instead of just generating code, it **stress-tests** your requirements by using adversarial semantic perturbations to find hidden ambiguities that usually lead to AI-generated bugs.
 
 ---
 
 ## ❌ The Problem: "The Guessing Game"
-When you give a vague or ambiguous spec to an AI Agent (like Claude, GPT-4, or Aider):
+When you give a vague or ambiguous spec to an AI Agent (like Claude, GPT, or Gemini):
 1.  **The Agent Guesses**: It fills the logical gaps with its own assumptions.
 2.  **The "Silent Fail"**: It writes 500 lines of technically correct but logically wrong code.
 3.  **The Debug Loop**: You spend hours fixing bugs that originated from a single ambiguous sentence in your spec.
 
-## ✅ The Solution: SpecLinter
-SpecLinter breaks the cycle by forcing the AI to prove the spec is robust **before** development starts.
+## ✅ The Solution: SpecLint
+SpecLint breaks the cycle by forcing the AI to prove the spec is robust **before** development starts.
 
 
 
